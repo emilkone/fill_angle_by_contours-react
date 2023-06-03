@@ -112,15 +112,23 @@ function App() {
     outputCanvas.width = canvas.width;
     outputCanvas.height = canvas.height;
 
-    // outputCtx.fillStyle = "black"; // Установка белого цвета фона
-    // outputCtx.fillRect(0, 0, outputCanvas.width, outputCanvas.height); // Закрашивание холста белым цветом
+    // outputCtx.fillStyle = "black";
 
-    image.fillStyle = "white";
+    outputCtx.fillStyle = "black"; // Установка белого цвета фона
+    outputCtx.fillRect(0, 0, outputCanvas.width, outputCanvas.height); // Закрашивание холста белым цветом
+
+    // image.fillStyle = "white";
     // image.fill();
-    outputCtx.drawImage(image, 0, 0, outputCanvas.width, outputCanvas.height);
-    outputCtx.globalCompositeOperation = "source-in";
     outputCtx.drawImage(
       canvasCopy,
+      0,
+      0,
+      outputCanvas.width,
+      outputCanvas.height
+    );
+    outputCtx.globalCompositeOperation = "source-in";
+    outputCtx.drawImage(
+      outputCanvas,
       0,
       0,
       outputCanvas.width,
